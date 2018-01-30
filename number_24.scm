@@ -9,16 +9,15 @@
 ;;; fashion.
 
 (define (rle items)
-  (reverse (foldl (lambda (x y)
-		    (cond ((null? x)
-			   (list (list y 1)))
-			  ((= (caar x) y)
-			   (cons (list y (+ 1 (cadar x)))
-				 (cdr  x)))
-			  (else
-			   (cons (list y 1) x))
-			  ))
-		  '() items)))
+  (foldr (lambda (y x)
+	   (cond ((null? x)
+		  (list (list y 1)))
+		 ((= (caar x) y)
+		  (cons (list y (+ 1 (cadar x)))
+			(cdr  x)))
+		 (else
+		  (cons (list y 1) x))))
+	 '() items))
 
 (define items '(1 1 1 2 2 3 2 3 3))
 
@@ -28,5 +27,4 @@
 (print "The run length encoding of which is:")
 (print (rle items))
 
-;; That was fun. Not so happy about the reverse though, but I will try
-;; to fix this later.
+
