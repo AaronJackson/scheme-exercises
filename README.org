@@ -1,0 +1,4 @@
+#+TITLE: Scheme Exercise Solutions
+
+This repository contains my solutions to the Scheme challenges
+proposed by [[https://github.com/tarballs-are-good][Robert Smith]], available on his website [[http://www.watrophy.com/][here]].
